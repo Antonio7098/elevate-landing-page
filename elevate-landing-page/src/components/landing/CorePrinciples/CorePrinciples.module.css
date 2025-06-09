@@ -1,6 +1,6 @@
 .section {
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  background-color: var(--color-background-light);
+  padding: 64px 0 72px 0;
+  background: linear-gradient(180deg, #fff1eb 0%, #ace0f9 100%);
   position: relative;
   overflow: hidden;
 }
@@ -8,171 +8,99 @@
 .sectionTitle {
   text-align: center;
   font-size: 2.25rem;
-  color: var(--color-text-dark);
-  margin-bottom: var(--spacing-xl);
-  font-weight: 700;
+  color: #2d3a8c;
+  margin-bottom: 48px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .principlesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-xl);
-  max-width: 1280px;
+  gap: 40px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 16px;
   position: relative;
   z-index: 1;
 }
 
 .principleCard {
-  background: var(--color-background-light);
-  border-radius: 16px;
-  padding: var(--spacing-xl);
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 32px 32px 32px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  height: 100%;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10);
+  border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.principleCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.03) 0%, rgba(124, 58, 237, 0.01) 100%);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.principleCard:hover::before {
-  opacity: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .principleCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: rgba(124, 58, 237, 0.2);
-}
-
-.principleCard:active {
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(44, 62, 80, 0.16);
 }
 
 .icon {
   font-size: 2.5rem;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 18px;
   display: inline-block;
 }
 
 .principleTitle {
-  font-size: 1.5rem;
-  color: var(--color-text-dark);
-  margin-bottom: var(--spacing-md);
-  font-weight: 600;
+  font-size: 1.35rem;
+  color: #2d3a8c;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .principleDescription {
-  color: var(--color-secondary-text);
+  color: #4b5563;
   line-height: 1.6;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  opacity: 0.95;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   .section {
-    padding: var(--spacing-2xl) var(--spacing-lg);
+    padding: 48px 0 56px 0;
   }
-  
   .principlesGrid {
-    gap: var(--spacing-lg);
-    padding: 0 var(--spacing-md);
+    gap: 24px;
+    padding: 0 8px;
   }
-  
   .principleCard {
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: 32px 16px 24px 16px;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-xl) var(--spacing-sm);
+    padding: 32px 0 40px 0;
   }
-  
   .sectionTitle {
-    font-size: 1.75rem;
-    margin-bottom: var(--spacing-xl);
-    padding: 0 var(--spacing-sm);
+    font-size: 1.5rem;
+    margin-bottom: 32px;
+    padding: 0 8px;
   }
-  
   .principlesGrid {
     grid-template-columns: 1fr;
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 var(--spacing-sm);
-    gap: var(--spacing-md);
+    padding: 0 4px;
+    gap: 16px;
   }
-  
   .principleCard {
-    padding: var(--spacing-lg) var(--spacing-md);
-    text-align: left;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-  }
-  
-  .icon {
-    margin-bottom: 0;
-    flex-shrink: 0;
-    font-size: 2rem;
-    margin-top: 0.25rem;
-  }
-  
-  .principleContent {
-    text-align: left;
-  }
-  
-  .principleTitle {
-    margin-bottom: var(--spacing-xs);
-  }
-}
-
-@media (max-width: 480px) {
-  .section {
-    padding: var(--spacing-xl) var(--spacing-sm);
-  }
-  
-  .sectionTitle {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-lg);
-  }
-  
-  .principlesGrid {
-    padding: 0;
-  }
-  
-  .principleCard {
-    padding: var(--spacing-lg);
+    padding: 24px 8px 16px 8px;
+    text-align: center;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
-  
-  .principleContent {
-    text-align: center;
-  }
-  
   .icon {
-    margin-bottom: var(--spacing-sm);
+    font-size: 2rem;
+    margin-bottom: 10px;
   }
 }

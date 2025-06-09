@@ -1,6 +1,24 @@
 import React, { useState, FormEvent } from 'react';
 import styles from './Hero.module.css';
 
+const BookTabletMockup = () => (
+  <svg
+    className={styles.bookTabletMockup}
+    viewBox="0 0 320 420"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="20" y="40" width="200" height="320" rx="24" fill="#2D3A8C"/>
+    <rect x="40" y="60" width="160" height="280" rx="16" fill="#fff"/>
+    <rect x="80" y="100" width="80" height="200" rx="8" fill="#F3F4F6"/>
+    <circle cx="120" cy="360" r="8" fill="#CBD5E1"/>
+    <rect x="100" y="370" width="40" height="8" rx="4" fill="#CBD5E1"/>
+    <rect x="240" y="80" width="60" height="260" rx="12" fill="#FFB199"/>
+    <rect x="250" y="100" width="40" height="220" rx="8" fill="#fff"/>
+    <rect x="255" y="110" width="30" height="200" rx="6" fill="#F3F4F6"/>
+  </svg>
+);
+
 const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -15,33 +33,17 @@ const Hero: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
-
-    // Validate email
     if (!email.trim()) {
       setError('Email is required');
       return;
     }
-
     if (!validateEmail(email)) {
       setError('Please enter a valid email address');
       return;
     }
-
     try {
       setIsLoading(true);
-      
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/waitlist', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email })
-      // });
-      
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // if (!response.ok) throw new Error('Failed to join waitlist');
-      
       setIsSubmitted(true);
       setEmail('');
     } catch (err) {
@@ -54,13 +56,14 @@ const Hero: React.FC = () => {
 
   return (
     <section className={styles.hero} id="home">
+      <div className={styles.heroLeft}>
+        <BookTabletMockup />
+      </div>
       <div className={styles.heroContent}>
-        <h1 className={styles.headline}>Master Any Subject, Faster</h1>
+        <h1 className={styles.headline}>Success starts with a great design book</h1>
         <p className={styles.subheadline}>
-          Elevate uses AI and proven learning science to create personalized quizzes
-          and study plans from your own notes.
+          Morbi leo tortor, fermentum sed orci vitae, tempor auctor turpis. Fusce bibendum accumsan finibus. Nulla aliquam luctus sem, at posuere nibh lobortis et. Ut ac mollis risus, eu congue libero. Nulla vestibulum ultricies tortor at ultricies.
         </p>
-        
         {isSubmitted ? (
           <div className={styles.successMessage}>
             <svg className={styles.successIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,12 +104,11 @@ const Hero: React.FC = () => {
                   <span>Joining...</span>
                 </>
               ) : (
-                'Join Waitlist'
+                'Get the Book'
               )}
             </button>
           </form>
         )}
-        
         <div className={styles.trustBadges}>
           <div className={styles.trustBadge}>
             <svg className={styles.badgeIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,12 +124,6 @@ const Hero: React.FC = () => {
             </svg>
             <span>Cancel anytime</span>
           </div>
-        </div>
-      </div>
-      <div className={styles.heroImage}>
-        {/* Placeholder for hero image */}
-        <div className={styles.imagePlaceholder}>
-          <div className={styles.screenMockup}></div>
         </div>
       </div>
     </section>

@@ -1,14 +1,14 @@
 .card {
-  background: var(--color-white);
-  border-radius: 16px;
+  background: #fff;
+  border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10);
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid var(--color-border-light);
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: none;
   overflow: hidden;
   will-change: transform, box-shadow;
 }
@@ -19,20 +19,16 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-primary-cta), var(--color-secondary-cta));
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  height: 6px;
+  background: linear-gradient(90deg, #a18cd1, #43cea2);
+  opacity: 1;
+  border-radius: 24px 24px 0 0;
+  z-index: 2;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-border-hover);
-}
-
-.card:hover::before {
-  opacity: 1;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(44, 62, 80, 0.16);
 }
 
 .quoteMark {
@@ -40,33 +36,24 @@
   top: 1.5rem;
   right: 2rem;
   left: auto;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 700;
-  color: var(--color-primary-cta);
-  opacity: 0.05;
+  color: #a18cd1;
+  opacity: 0.12;
   line-height: 1;
   font-family: Georgia, serif;
-  transition: all 0.3s ease;
-  z-index: 0;
-}
-
-.card:hover .quoteMark {
-  transform: scale(1.05);
-  opacity: 0.08;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .quote {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.7;
-  color: var(--color-text-dark);
-  margin: 1.5rem 0 2rem;
+  color: #2d3a8c;
+  margin: 2rem 0 2.5rem;
   position: relative;
-  z-index: 1;
-  transition: color 0.3s ease;
-}
-
-.card:hover .quote {
-  color: var(--color-text-darker);
+  z-index: 2;
+  font-weight: 500;
 }
 
 .author {
@@ -74,14 +61,9 @@
   align-items: center;
   margin-top: auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border-light);
-  transition: border-color 0.3s ease;
-}
-
-.card:hover .author {
-  border-color: var(--color-border-hover);
+  border-top: 1px solid #e5e7eb;
 }
 
 .avatar {
@@ -90,20 +72,14 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 1rem;
-  background: linear-gradient(135deg, var(--color-primary-cta), var(--color-secondary-cta));
+  background: linear-gradient(135deg, #a18cd1, #43cea2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  color: var(--color-white);
+  color: #fff;
   flex-shrink: 0;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover .avatar {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .avatar img {
@@ -119,61 +95,46 @@
 
 .name {
   font-weight: 600;
-  color: var(--color-text-dark);
+  color: #2d3a8c;
   margin-bottom: 0.25rem;
-  transition: color 0.3s ease;
-}
-
-.card:hover .name {
-  color: var(--color-primary-cta);
 }
 
 .role {
-  font-size: 0.9rem;
-  color: var(--color-secondary-text);
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  color: #4b5563;
 }
 
-.card:hover .role {
-  color: var(--color-text);
-}
-
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   .card {
     padding: 2rem 1.75rem;
+    border-radius: 18px;
   }
-  
   .quoteMark {
-    font-size: 5rem;
-    right: 1.5rem;
+    font-size: 4rem;
+    right: 1.2rem;
   }
-  
   .quote {
     font-size: 1.05rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .card {
-    padding: 1.75rem 1.5rem;
+    padding: 1.25rem 1rem;
     border-radius: 12px;
   }
-  
   .quoteMark {
     top: 1rem;
-    right: 1.5rem;
-    font-size: 4rem;
+    right: 1rem;
+    font-size: 2.5rem;
   }
-  
   .quote {
     font-size: 1rem;
     margin: 1.25rem 0 1.75rem;
   }
-  
   .avatar {
-    width: 44px;
-    height: 44px;
-    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 }

@@ -1,6 +1,5 @@
 .header {
-  background-color: var(--color-background-light);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -9,7 +8,7 @@
 }
 
 .header.scrolled {
-  background-color: rgba(255, 255, 255, 0.98);
+  background-color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(8px);
 }
@@ -107,7 +106,7 @@
 
 .signupButton {
   background-color: var(--color-primary-cta);
-  color: white;
+  color: var(--color-text-light);
   padding: 0.6rem 1.5rem;
   border-radius: 30px;
   text-decoration: none;
