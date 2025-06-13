@@ -7,28 +7,45 @@ type Feature = {
   title: string;
   description: string;
   visual: string;
+  cta: string;
+  ctaLink: string;
   reversed?: boolean;
 };
 
 const features: Feature[] = [
   {
-    title: 'AI-Powered Question Generation',
-    description: 'Our advanced AI analyzes your notes and generates targeted questions to test your understanding and highlight knowledge gaps.',
-    visual: '📝',
-    id: 'ai-questions'
+    title: 'Cut Through the Noise. Focus on What Matters.',
+    description: 'Stop spending hours creating study materials and trying to guess what\'s important. Paste your notes, articles, or documents, and let Elevate\'s AI instantly deconstruct the content into core \'Fundamental Ideas\' and generate targeted questions. We handle the prep work, so you can focus on learning.',
+    visual: '📝', // Placeholder for a more complex visual representation
+    id: 'learn-faster',
+    cta: 'Learn More About AI Deconstruction →',
+    ctaLink: '/ai-deconstruction'
   },
   {
-    title: 'Personalized Review Schedules',
-    description: 'Smart algorithms determine the optimal time to review material based on your performance and the forgetting curve.',
-    visual: '⏰',
-    id: 'schedules',
-    reversed: true
+    title: 'Powered by Science, Built for Retention.',
+    description: 'Forgetting what you\'ve worked hard to learn is frustrating. Elevate is built on two scientific pillars of long-term memory: Active Recall, with AI-generated questions that force you to retrieve knowledge, and Spaced Repetition, with an intelligent algorithm that schedules reviews at the perfect moment to interrupt the forgetting curve and embed knowledge deep in your memory.',
+    visual: '📊', // Placeholder for the Ebbinghaus forgetting curve visualization
+    id: 'remember-longer',
+    reversed: true,
+    cta: 'Explore the Science →',
+    ctaLink: '/learning-science'
   },
   {
-    title: 'Deep Conceptual Understanding',
-    description: 'Go beyond rote memorization with our U-U-E (Understand-Use-Explain) framework that ensures true mastery of concepts.',
-    visual: '🧩',
-    id: 'understanding'
+    title: 'Your Progress, Visualized.',
+    description: 'Understand your learning like never before. Elevate provides detailed statistics and beautiful visualizations for every folder and question set. Track your mastery over time, see your U-U-E (Understand, Use, Explore) scores develop, and watch your forgetting curve flatten. Turn your hard work into tangible, visible results.',
+    visual: '📈', // Placeholder for progress tracking visualization
+    id: 'witness-growth',
+    cta: 'See a Demo of Tracking →',
+    ctaLink: '/progress-tracking'
+  },
+  {
+    title: 'A Learning Co-Pilot That Knows You.',
+    description: 'Every learner is unique. Elevate\'s AI pays attention. It learns your strengths, weaknesses, and even your preferred learning style over time. Get chat explanations tailored to your level of understanding, and receive newly generated questions that specifically target the concepts you need to strengthen. This is a learning partner that evolves with you.',
+    visual: '🤖', // Placeholder for personalization graphic
+    id: 'deep-personalization',
+    reversed: true,
+    cta: 'Discover Personalization →',
+    ctaLink: '/personalization'
   }
 ];
 
@@ -75,9 +92,9 @@ const Features: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.sectionTitle}>Powerful Features for Effective Learning</h2>
+          <h2 className={styles.sectionTitle}>Your AI Learning Companion</h2>
           <p className={styles.sectionSubtitle}>
-            Designed to help you learn faster and remember longer
+            Transform how you learn, remember, and grow
           </p>
         </motion.div>
         
@@ -109,6 +126,9 @@ const Features: React.FC = () => {
                 <p className={styles.featureDescription}>
                   {feature.description}
                 </p>
+                <a href={feature.ctaLink} className={styles.featureCta}>
+                  {feature.cta}
+                </a>
               </div>
             </motion.div>
           ))}
